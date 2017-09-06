@@ -17,7 +17,7 @@
 
 <h1>Integrantes</h1>
 <h3>Victor Hugo</h3>
-<h3>Edson</h3>
+<h3>Edson Junio</h3>
 <h3>Daniel Nunes</h3>
 <h3>Lucas Vinicius</h3>
 <h3>Bruno Freitas</h3>
