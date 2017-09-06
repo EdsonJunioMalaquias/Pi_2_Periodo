@@ -10,9 +10,7 @@
 <h1>Projeto</h1>
 
 
-
 <h1>Cronograma</h1>
-
 
 
 <h1>Integrantes</h1>
