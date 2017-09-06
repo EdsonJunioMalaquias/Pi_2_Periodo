@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Pi Aplicativo</title>
 </head>
 <body>
 <h1>Resumo</h1>
