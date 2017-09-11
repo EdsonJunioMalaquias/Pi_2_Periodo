@@ -11,7 +11,7 @@
 
 
 <h1>Cronograma</h1>
-
+ Setembro - Enterga dos layouts e conhecimento da plataforma. 
 
 <h1>Integrantes</h1>
 <h3>Victor Hugo</h3>
