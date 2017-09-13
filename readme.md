@@ -11,9 +11,9 @@
 
 
 <h1>Cronograma</h1>
- <p>Setembro - Enterga dos layouts e conhecimento da plataforma.</p> 
+ <p>Setembro - Criação dos layoute 4 Telas com os desenhos logomarca do HNSF e clicaveu sem informações de programação.</p> 
  <p>Outubro - Programção do aplicativo.</p> 
- <p>Novembro - configuração do banco de Dados Finalização do aplicativo.</p>
+ <p>Novembro - Configuração do banco de Dados Finalização do aplicativo.</p>
 
 <h1>Integrantes</h1>
 <h3>Victor Hugo</h3>
