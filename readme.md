@@ -12,6 +12,8 @@
 
 <h1>Cronograma</h1>
  Setembro - Enterga dos layouts e conhecimento da plataforma. 
+ Outubro - Programção do aplicativo. 
+ Novembro - configuração do banco de Dados Finalização do aplicativo.
 
 <h1>Integrantes</h1>
 <h3>Victor Hugo</h3>
