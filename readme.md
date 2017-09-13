@@ -20,6 +20,7 @@
 <hr>
 <h5>Novembro</h5>
  <p>Configuração do banco de Dados Finalização do aplicativo.</p>
+<hr>
 
 <h1>Integrantes</h1>
 <h3>Victor Hugo</h3>
