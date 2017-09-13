@@ -11,7 +11,7 @@
 
 
 <h1>Cronograma</h1>
- Setembro - Enterga dos layouts e conhecimento da plataforma. 
+ <p>Setembro - Enterga dos layouts e conhecimento da plataforma.</p> 
  <p>Outubro - Programção do aplicativo.</p> 
  <p>Novembro - configuração do banco de Dados Finalização do aplicativo.</p>
 
