@@ -11,10 +11,7 @@
 
 
 <h1>Cronograma</h1>
-<hr>
- <h5>Setembro</h5>
- <p>Criação dos layoute 4 Telas com os desenhos logomarca do HNSF e clicaveu sem informações de programação.</p> 
-<hr>
+ <p>Setembro - Criação dos layoute 4 Telas com os desenhos logomarca do HNSF e clicavel sem informações de programação.</p> 
  <p>Outubro - Programção do aplicativo.</p> 
  <p>Novembro - Configuração do banco de Dados Finalização do aplicativo.</p>
 
