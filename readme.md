@@ -11,9 +11,15 @@
 
 
 <h1>Cronograma</h1>
- <p>Setembro - Criação dos layoute 4 Telas com os desenhos logomarca do HNSF e clicavel sem informações de programação.</p> 
- <p>Outubro - Programção do aplicativo.</p> 
- <p>Novembro - Configuração do banco de Dados Finalização do aplicativo.</p>
+<hr>
+<h5>Setembro</h5>
+ <p>Criação dos layoute 4 Telas com os desenhos logomarca do HNSF e clicavel sem informações de programação.</p> 
+<hr>
+<h5>Outubro</h5>
+ <p>Programção do aplicativo.</p> 
+<hr>
+<h5>Novembro</h5>
+ <p>Configuração do banco de Dados Finalização do aplicativo.</p>
 
 <h1>Integrantes</h1>
 <h3>Victor Hugo</h3>
