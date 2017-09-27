@@ -14,7 +14,7 @@
 <h1>Cronograma</h1>
 <hr>
 <h5>Setembro</h5>
- <p>Criação do layout, Telas com os desenhos logomarca do HNSF.</p> 
+ <p>Criação do layout, Telas com os desenhos logomarca do HNSF, imagens editadas pelo photoshop.</p> 
 <hr>
 <h5>Outubro</h5>
  <p>Programção do aplicativo.</p> 
