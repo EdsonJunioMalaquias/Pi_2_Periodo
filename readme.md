@@ -14,7 +14,7 @@
 <h1>Cronograma</h1>
 <hr>
 <h5>Setembro</h5>
- <p>Criação dos layout, 4 Telas com os desenhos logomarca do HNSF e clicavel.</p> 
+ <p>Criação dos layout, 4 Telas com os desenhos logomarca do HNSF.</p> 
 <hr>
 <h5>Outubro</h5>
  <p>Programção do aplicativo.</p> 
