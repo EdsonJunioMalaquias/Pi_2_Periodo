@@ -20,13 +20,12 @@
  <p>Criação da tela de login com duas caixas de entrada, começando a comunicaçao com firebase,criação de novas Activity e programaçao buttons.</p> 
 <hr>
 <h5>Novembro</h5>
- <p>Configuração do banco de Dados Finalização do aplicativo.</p>
+ <p>Finalizar comunicação com firebase e salvar e enviar os dados digitados para o firebase.</p>
 <hr>
 
 <h1>Integrantes</h1>
 <h3>Victor Hugo</h3>
 <h3>Edson Malaquias</h3>
-<h3>Daniel Nunes</h3>
 <h3>Lucas Vinicius</h3>
 <h3>Bruno Freitas</h3>
 </body>
