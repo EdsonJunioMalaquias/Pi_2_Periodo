@@ -1,1 +1,4 @@
-Firebase
+Criação da tela de seleção,avaliação e comentario. 
+peguei o trabalho de todos e ajustei em um trabalho so, ajustando os detalhes para as telas ficarem parecida e fiz a programação dos buttons para integrar as telas entre si.
+coloquei o icone de iniciar o aplicativo.
+ajuste de todos os warnings que tinham e ajudes das string que estavao erradas.
