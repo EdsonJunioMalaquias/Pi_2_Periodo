@@ -1,1 +1,3 @@
 Tela de agradecimento.
+Atualizações do Android Studio.
+
