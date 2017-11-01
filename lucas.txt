@@ -1,1 +1,3 @@
-Criei tela de questionario aperfeiçoando layout, utilizando checkbox, texteview e textedit, colocando imagem de fundo
+Criei tela de questionario aperfeiçoando o layout 
+utilizei checkbox, texteview e textedit, colocando imagem de fundo
+
