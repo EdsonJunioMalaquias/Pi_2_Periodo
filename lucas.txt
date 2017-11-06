@@ -1,3 +1,6 @@
+Outubro
 Criei tela de questionario
 Utilizei checkbox, texteview e textedit, colocando imagem de fundo, para um layout mais apresentevel.
+
+Novembro
 
