@@ -1,4 +1,1381 @@
 Criação da tela de seleção,avaliação e comentario. 
-peguei o trabalho de todos e ajustei em um trabalho so, ajustando os detalhes para as telas ficarem parecida e fiz a programação dos buttons para integrar as telas entre si.
+peguei o trabalho de todos e juntei em um trabalho, ajustando os detalhes para as telas ficarem parecida e fiz a programação dos buttons para trocar de telas.
 coloquei o icone de iniciar o aplicativo.
 ajuste de todos os warnings que tinham e ajudes das string que estavao erradas.
+ajuste de todas as telas de fundo do app pois a tela estava muito cheia
+crianção de um xml para deixar os botoes ovais e mudar a cor de fundo dos botoes e ajustes gerais nos botoes
+ajuste dos nomes de algumas strings e criação de outras ajuste no incone de incicir o app ajustes de alguns nomes no manifest
+
+
+
+                                        codigos da tela de seleção
+
+
+package com.aplicativohnsf.hnsf;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+
+public class SelecaoActivity extends AppCompatActivity {
+    public Button buton1,buton2,buton3;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_selecao);
+        buton1 = (Button)findViewById(R.id.btn1);
+        buton2 = (Button)findViewById(R.id.btn2);
+        buton3 = (Button)findViewById(R.id.btn3);
+
+        buton1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View verificarbutonquestionario){
+                Intent abriquestionario = new Intent(SelecaoActivity.this, QuestionarioActivity.class);
+                startActivity(abriquestionario);
+            }
+        });
+        buton2.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View verificarbutonsetor){
+                Intent abrirSetor = new Intent(SelecaoActivity.this,setoresActivity.class);
+                startActivity(abrirSetor);
+            }
+        });
+        buton3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View vereficarbutoncomentario){
+                Intent abrirComentario = new Intent(SelecaoActivity.this,ComentarioActivity.class);
+                startActivity(abrirComentario);
+            }
+        });
+    }
+}
+
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aplicativohnsf.hnsf.SelecaoActivity">
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_selecao" />
+
+
+</android.support.design.widget.CoordinatorLayout>
+
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.aplicativohnsf.hnsf.SelecaoActivity"
+    tools:showIn="@layout/activity_selecao">
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_height="103dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/hnsfimg"
+        app:layout_constraintBottom_toTopOf="@+id/btn1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hnsf" />
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/butonComentar"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/butonSetor"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn1"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="45dp"
+        android:background="@drawable/roundedbutton"
+        android:radius="20dp"
+        android:text="@string/Opcao1str"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24" />
+
+</android.support.constraint.ConstraintLayout>
+
+
+
+
+
+                                                    codigo da primeira tela de setores
+                                                    
+                                                    
+                                                    
+                                                    
+
+package com.aplicativohnsf.hnsf;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RatingBar;
+import android.widget.Toast;
+
+public class setoresActivity extends AppCompatActivity {
+    public Button butonnext;
+    RatingBar rb1,rb2,rb3,rb4;
+    RatingBar rb5,rb6,rb7,rb8;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_setores);
+        rb1 = (RatingBar) findViewById(R.id.ratingBar1);
+        rb1.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setoresActivity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb2 = (RatingBar) findViewById(R.id.ratingBar2);
+        rb2.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setoresActivity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb3 = (RatingBar) findViewById(R.id.ratingBar3);
+        rb3.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setoresActivity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb4 = (RatingBar) findViewById(R.id.ratingBar4);
+        rb4.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setoresActivity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb5 = (RatingBar) findViewById(R.id.ratingBar5);
+        rb5.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setoresActivity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb6 = (RatingBar) findViewById(R.id.ratingBar6);
+        rb6.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setoresActivity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb7 = (RatingBar) findViewById(R.id.ratingBar7);
+        rb7.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setoresActivity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb8 = (RatingBar) findViewById(R.id.ratingBar8);
+        rb8.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setoresActivity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        butonnext = (Button) findViewById(R.id.btnnext);
+
+        butonnext.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View verificacaosetor2) {
+                Intent abrirSetor2 = new Intent(setoresActivity.this, setores2Activity.class);
+                startActivity(abrirSetor2);
+            }
+        });
+    }
+}
+
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aplicativohnsf.hnsf.setoresActivity">
+
+    <include layout="@layout/content_setores" />
+
+
+</android.support.design.widget.CoordinatorLayout>
+
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.aplicativohnsf.hnsf.setoresActivity"
+    tools:showIn="@layout/activity_setores">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="260dp"
+        android:layout_height="81dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/pesquisasatisfaction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logopesquisa"
+        tools:ignore="ContentDescription" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar1"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toRightOf="@+id/tv1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv1"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar2"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toRightOf="@+id/tv1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar1" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar3"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar2" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar4"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar3" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar6"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar5" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar5"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar4" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar7"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar6" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar8"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintBottom_toTopOf="@+id/btnnext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar7"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+
+        android:text="@string/recep_o_do_pronto_atendimento"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/recep_o_cardiologia"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="24dp"
+
+        android:text="@string/exames"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="18dp"
+
+        android:text="@string/atendimento_m_dico"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+
+        android:text="@string/RecepcaoAvaliacao"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="18dp"
+
+        android:text="@string/recep_o_do_cdi"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="16dp"
+
+        android:text="@string/limpeza_e_servi_os_gerais"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="15dp"
+
+        android:text="PABX-ATENDIMENTO TELEFÔNICO"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="HardcodedText,SmallSp" />
+
+    <Button
+        android:id="@+id/btnnext"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+
+        android:layout_marginTop="8dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/proximos"
+        android:textColor="?attr/editTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+
+</android.support.constraint.ConstraintLayout>
+ 
+
+
+
+
+                                                    codigo da segunda tela de setores
+                                                    
+                                                    
+                                                    
+                                                    
+                                                    
+package com.aplicativohnsf.hnsf;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RatingBar;
+import android.widget.Toast;
+
+public class setores2Activity extends AppCompatActivity {
+    public Button btnes;
+    RatingBar rb1,rb2,rb3,rb4;
+    RatingBar rb5,rb6,rb7,rb8;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_setores2);
+
+        rb1 = (RatingBar) findViewById(R.id.ratingBar1);
+        rb1.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setores2Activity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb2 = (RatingBar) findViewById(R.id.ratingBar2);
+        rb2.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setores2Activity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb3 = (RatingBar) findViewById(R.id.ratingBar3);
+        rb3.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setores2Activity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb4 = (RatingBar) findViewById(R.id.ratingBar4);
+        rb4.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setores2Activity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb5 = (RatingBar) findViewById(R.id.ratingBar5);
+        rb5.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setores2Activity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb6 = (RatingBar) findViewById(R.id.ratingBar6);
+        rb6.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setores2Activity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb7 = (RatingBar) findViewById(R.id.ratingBar7);
+        rb7.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setores2Activity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+        rb8 = (RatingBar) findViewById(R.id.ratingBar8);
+        rb8.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                Toast.makeText(setores2Activity.this, String.valueOf(rating), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnes = (Button)findViewById(R.id.BtnEnviarSetores);
+        btnes.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View verificarbutoncomentario){
+                Intent abrilastActivity = new Intent(setores2Activity.this, AgradecimentoActivity.class);
+                startActivity(abrilastActivity);
+            }
+        });
+    }
+}
+
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aplicativohnsf.hnsf.setores2Activity">
+
+    <include layout="@layout/content_setores2" />
+
+</android.support.design.widget.CoordinatorLayout>
+
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.aplicativohnsf.hnsf.setores2Activity"
+    tools:showIn="@layout/activity_setores2">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="260dp"
+        android:layout_height="81dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/pesquisasatisfaction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logopesquisa"
+        tools:ignore="ContentDescription" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar1"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar2"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/textView14"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar1" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar3"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/textView13"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar4" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar4"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/textView11"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar2" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar5"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar6" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar6"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar3" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar7"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar5" />
+
+    <RatingBar
+
+        android:id="@+id/ratingBar8"
+        style="@android:style/Widget.Holo.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar7" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/equipe_de_enfermagem"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/cti"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/bloco_cir_rgico"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/instala_es_e_acomoda_es"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/hotelaria_e_rouparia"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="9dp"
+        android:text="@string/servi_os_de_nutri_o_e_diet_tica"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/tesouraria_e_faturamento"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="170sp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/secret_rias_dos_m_dicos"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <Button
+        android:id="@+id/BtnEnviarSetores"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/enviar"
+        android:textColor="?attr/editTextColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+</android.support.constraint.ConstraintLayout>
+
+
+
+
+                                                    programação da tela de comentario
+
+ 
+ <?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.aplicativohnsf.hnsf.ComentarioActivity"
+    tools:showIn="@layout/activity_comentario">
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/deixe_sua_elogio_critica_ou_sugest_o"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <EditText
+        android:id="@+id/editText2"
+        style="?attr/editTextStyle"
+        android:layout_width="340dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@android:color/background_light"
+        android:ems="10"
+        android:gravity="top|center_vertical"
+        android:hint="@string/deixe_seu_comentario"
+        android:inputType="textAutoCorrect|textMultiLine|textLongMessage"
+        android:linksClickable="true"
+        android:saveEnabled="true"
+        android:textAlignment="gravity"
+        app:layout_constraintBottom_toTopOf="@+id/btnComentario"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <Button
+        android:id="@+id/btnComentario"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/enviar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="214dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hnsf" />
+
+</android.support.constraint.ConstraintLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aplicativohnsf.hnsf.ComentarioActivity">
+
+    <include layout="@layout/content_comentario" />
+
+</android.support.design.widget.CoordinatorLayout>
+package com.aplicativohnsf.hnsf;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+
+public class ComentarioActivity extends AppCompatActivity {
+    public Button btnC;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_comentario);
+        btnC = (Button)findViewById(R.id.btnComentario);
+
+        btnC.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View verificarbutoncomentario){
+                Intent abrilastActivity = new Intent(ComentarioActivity.this, AgradecimentoActivity.class);
+                startActivity(abrilastActivity);
+            }
+        });
+    }
+}
+                              criação da programação de alguns butos das telas criadas pelos outros do grupo
+
+    public Button btnC;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_comentario);
+        btnC = (Button)findViewById(R.id.btnComentario);
+
+        btnC.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View verificarbutoncomentario){
+                Intent abrilastActivity = new Intent(ComentarioActivity.this, AgradecimentoActivity.class);
+                startActivity(abrilastActivity);
+            }
+        });
+    }
+    public Button btnvoltar;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_agradecimento);
+        btnvoltar =(Button)findViewById(R.id.btnvoltar);
+        btnvoltar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View verificarretorno){
+                Intent abriselecao = new Intent(AgradecimentoActivity.this, SelecaoActivity.class);
+                startActivity(abriselecao);
+            }
+        });
+    }  
+    public Button btnEntrar,btnCad;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        btnEntrar = (Button)findViewById(R.id.btnmain);
+        btnEntrar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View verificarbutonentrar){
+                Intent abriselecao = new Intent(MainActivity.this, SelecaoActivity.class);
+                startActivity(abriselecao);
+            }
+        });
+    }
+    public Button btnq;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_questionario);
+        btnq = (Button)findViewById(R.id.btnquestionario);
+
+        btnq.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View verificarbutoncomentario){
+                Intent abrilastActivity = new Intent(QuestionarioActivity.this, AgradecimentoActivity.class);
+                startActivity(abrilastActivity);
+            }
+        });
+    }
+
+
+
+              alterações de nomes e imagens de inicio do app no  manifast
+                                              
+                                              
+                                              
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.aplicativohnsf.hnsf">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".SelecaoActivity"
+            android:label="@string/title_activity_selecao"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".setoresActivity"
+            android:label="@string/title_activity_setores"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".setores2Activity"
+            android:label="@string/title_activity_setores2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ComentarioActivity"
+            android:label="@string/title_activity_comentario"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".QuestionarioActivity"
+            android:label="@string/title_activity_questionario"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AgradecimentoActivity"
+            android:label="@string/title_activity_agradecimento"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+
+</manifest>
+
+
+
+                                                           buton oval
+                                                           
+                                                           
+                                                           
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="#FF329BBC" />
+    <corners android:bottomRightRadius="20dp"
+        android:bottomLeftRadius="20dp"
+        android:topRightRadius="20dp"
+        android:topLeftRadius="20dp"/>
+ </shape>
+ 
+ 
+                                             style do backgound do app 
+                                             
+                                             
+                                             
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+</resources>
+ 
+ 
+ 
+                      criação das string e alteração de algumas todos do grupo teve envolvimento nesse 
+                      
+                      
+                               
+<resources>
+    <string name="app_name">HNSF</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_selecao">HNSF-Questionario</string>
+    <string name="title_activity_setores">HNSF-Setores</string>
+    <string name="title_activity_main">HNSF</string>
+    <string name="Opcao1str">Questionário</string>
+    <string name="butonSetor">Avaliação dos Setores</string>
+    <string name="butonComentar">Comentários</string>
+    <string name="RecepcaoAvaliacao">RECEPÇÃO CENTRAL</string>
+    <string name="title_activity_setores2">HNSF-Setores</string>
+    <string name="recep_o_do_cdi">RECEPÇÃO DO CDI</string>
+    <string name="recep_o_do_pronto_atendimento">RECEPÇÃO DO PRONTO ATENDIMENTO</string>
+    <string name="exames">EXAMES</string>
+    <string name="atendimento_m_dico">ATENDIMENTO MÉDICO</string>
+    <string name="limpeza_e_servi_os_gerais">LIMPEZA E SERVIÇOS GERAIS</string>
+    <string name="proximos">Proximos</string>
+    <string name="recep_o_cardiologia">RECEPÇÃO CARDIOLOGIA</string>
+    <string name="equipe_de_enfermagem">EQUIPE DE ENFERMAGEM</string>
+    <string name="cti">CTI</string>
+    <string name="bloco_cir_rgico">BLOCO CIRÚRGICO</string>
+    <string name="instala_es_e_acomoda_es">INSTALAÇÕES E ACOMODAÇÕES</string>
+    <string name="hotelaria_e_rouparia">HOTELARIA E ROUPARIA</string>
+    <string name="tesouraria_e_faturamento">TESOURARIA E FATURAMENTO</string>
+    <string name="secret_rias_dos_m_dicos">SECRETÁRIAS DOS MÉDICOS</string>
+    <string name="servi_os_de_nutri_o_e_diet_tica">SERVIÇOS DE NUTRIÇÃO E DIETÉTICA</string>
+    <string name="enviar">Enviar</string>
+    <string name="title_activity_comentario">HNSF-Comentario</string>
+    <string name="title_activity_questionario">HNSF-Questionario</string>
+    <string name="pergunta1">1-De modo geral, qual seu nivel de satisfaçao em relaçao ao atendimento HNSF?</string>
+    <string name="chk1">MUITO SATISFEITO</string>
+    <string name="chk2">SATISFEITO</string>
+    <string name="chk3">INDIFERENTE</string>
+    <string name="chk4">INSATISFEITO</string>
+    <string name="pergunta2">2-Já utilizou anteriormente nossos serviços?</string>
+    <string name="chk5">SIM</string>
+    <string name="chk6">NÃO</string>
+    <string name="pergunta3">3-Escolheu o HNSF por:</string>
+    <string name="chk7">ENCAMINHAMENTO DO CONVENIO</string>
+    <string name="chk8">ENCAMINHAMENTO DO MÉDICO</string>
+    <string name="chk9">INDICAÇÃO DE FAMILIAS/AMIGOS</string>
+    <string name="chk10">LOCALIZAÇÃO</string>
+    <string name="chk12">OUTRO:</string>
+    <string name="edit_text" />
+    <string name="buton">ENVIAR</string>
+    <string name="deixe_sua_elogio_critica_ou_sugest_o">Deixe sua elogio, critica ou sugestão</string>
+    <string name="title_activity_agradecimento">AgradecimentoActivity</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="deixe_seu_comentario">Deixe seu comentário</string>
+    <string name="voltar">Voltar</string>
+    <string name="obrigado_por_nos_ajudar_na_melhoria_de_nossos_servi_os">OBRIGADO POR NOS AJUDAR NA MELHORIA DE NOSSOS SERVIÇOS</string>
+    <string name="www_hnsf_com_br_hnsf_hnsf_com_br">www.hnsf.com.br| hnsf@hnsf.com.br</string>
+    <string name="pabx_34_3820_1000_fax_34_3820_1100">Pabx:(34) 3820-1000 |Fax:(34) 3820-1100</string>
+    <string name="rua_padre_caldeira_386_centro_patos_de_minas_mg">Rua Padre Caldeira, 386, Centro - Patos de Minas-MG</string>
+    <string name="hnsfimg">hnsfimg</string>
+    <string name="pesquisasatisfaction">pesquisasatisfaction</string>
+    <string name="entrar">Entrar</string>
+</resources>
+                              
+ 
