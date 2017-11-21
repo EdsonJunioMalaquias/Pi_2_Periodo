@@ -1,1 +1,4 @@
 Criação da Tela de login, começo de autenticação do firebase com android studio.
+Depois da tela de login pronta, comecei a programação de autenticação do firebase com android studio,
+fiz a parte de login com a conta google assim futuramente alinhando uma tela de cadastro e autenticação 
+automatica.
