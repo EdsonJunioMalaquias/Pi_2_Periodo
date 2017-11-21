@@ -2,3 +2,175 @@ Criação da Tela de login, começo de autenticação do firebase com android st
 Depois da tela de login pronta, comecei a programação de autenticação do firebase com android studio,
 fiz a parte de login com a conta google assim futuramente alinhando uma tela de cadastro e autenticação 
 automatica.
+
+                                  Código Main Activity
+                                 
+package com.aplicativohnsf.hnsf;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+public class MainActivity extends AppCompatActivity {
+
+    private Button btnEntrar,btnCad;
+    private FirebaseAuth firebaseAuth;
+    private EditText email;
+    private EditText senha;
+    private String emailString;
+    private String senhaString;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btnEntrar = (Button)findViewById(R.id.btnmain);
+        email = (EditText) findViewById(R.id.editEmail);
+        senha = (EditText) findViewById(R.id.editSenha);
+
+        btnEntrar.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public  void onClick(View verificarbutonentrar){
+
+                logar();
+
+            }
+        });
+    }
+
+    private void logar(){
+
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        emailString =  email.getText().toString();
+        senhaString = senha.getText().toString();
+
+        firebaseAuth.signInWithEmailAndPassword(emailString, senhaString).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+
+                if(task.isSuccessful()){
+
+                    Toast.makeText(MainActivity.this, "Logado com sucesso!", Toast.LENGTH_LONG).show();
+                    Intent abriselecao = new Intent(MainActivity.this, SelecaoActivity.class);
+                    startActivity(abriselecao);
+
+                }else{
+
+                    Toast.makeText(MainActivity.this, "Erro ao logar!", Toast.LENGTH_LONG).show();
+
+                }
+
+            }
+        });
+
+    }
+
+}
+
+
+                                                    Contente main
+                                                    
+                                                    
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.aplicativohnsf.hnsf.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+
+    <EditText
+        android:id="@+id/editEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="45dp"
+        android:ems="10"
+        android:hint="@string/e_mail"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="88dp"
+        android:layout_weight="0.31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="InefficientWeight">
+
+        <ImageView
+            android:id="@+id/imageView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/hnsf"
+            tools:ignore="ContentDescription" />
+
+    </FrameLayout>
+
+    <Button
+        android:id="@+id/btnmain"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="88dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_weight="0.31"
+        android:background="@drawable/roundedbutton"
+        android:text="@string/entrar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editSenha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="@string/senha"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editEmail" />
+
+</android.support.constraint.ConstraintLayout>
+  
+                                
+
