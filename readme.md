@@ -17,10 +17,10 @@
  <p>Criação do layout, Telas com os desenhos logomarca do HNSF, imagens editadas pelo photoshop.</p> 
 <hr>
 <h5>Outubro</h5>
- <p>Criação da tela de login com duas caixas de entrada, começando a comunicaçao com firebase,criação de novas Activity e programaçao dos buttons.</p> 
+ <p>Criação da tela de login com duas caixas de entrada, começando a comunicaçao com firebase,criação de novas Activity.</p> 
 <hr>
 <h5>Novembro</h5>
- <p>Finalizar comunicação com firebase e salvar e enviar os dados digitados para o firebase.</p>
+ <p>Finalizar comunicação com firebase criar autenticaçao de login com o firebase e programaçao de todos os buttons das telas.</p>
 <hr>
 
 <h1>Integrantes</h1>
