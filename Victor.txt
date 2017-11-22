@@ -1,7 +1,9 @@
 Tela de agradecimento.
 Atualizações do Android Studio.
+Criação da tela de agradecimento.
+Comentarios do Paciente.
+Tratamento.
 
-Criação da tela de agradecimento
         <activity
             android:name=".AgradecimentoActivity"
             android:label="@string/title_activity_agradecimento"
