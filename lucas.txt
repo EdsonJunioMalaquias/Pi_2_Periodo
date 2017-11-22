@@ -1,10 +1,10 @@
-Outubro
-Criei tela de questionario
-Utilizei checkbox, texteview e textedit, colocando imagem de fundo, para um layout mais apresentevel.
-
 Novembro
 
+
+
 Parte XML de todos os butoes e campos.
+
+
 
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -323,7 +323,11 @@ Parte XML de todos os butoes e campos.
 
 </android.support.constraint.ConstraintLayout>
 
+
+
 Programaçao em java dos butoes da tela
+
+
 
 package com.aplicativohnsf.hnsf;
 
@@ -351,5 +355,70 @@ public class QuestionarioActivity extends AppCompatActivity {
     }
 
 }
+
+
+
+ criação das string e alteração de algumas todos do grupo teve envolvimento nesse 
+                      
+                    
+                               
+<resources>
+    <string name="app_name">HNSF</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_selecao">HNSF-Questionario</string>
+    <string name="title_activity_setores">HNSF-Setores</string>
+    <string name="title_activity_main">HNSF</string>
+    <string name="Opcao1str">Questionário</string>
+    <string name="butonSetor">Avaliação dos Setores</string>
+    <string name="butonComentar">Comentários</string>
+    <string name="RecepcaoAvaliacao">RECEPÇÃO CENTRAL</string>
+    <string name="title_activity_setores2">HNSF-Setores</string>
+    <string name="recep_o_do_cdi">RECEPÇÃO DO CDI</string>
+    <string name="recep_o_do_pronto_atendimento">RECEPÇÃO DO PRONTO ATENDIMENTO</string>
+    <string name="exames">EXAMES</string>
+    <string name="atendimento_m_dico">ATENDIMENTO MÉDICO</string>
+    <string name="limpeza_e_servi_os_gerais">LIMPEZA E SERVIÇOS GERAIS</string>
+    <string name="proximos">Proximos</string>
+    <string name="recep_o_cardiologia">RECEPÇÃO CARDIOLOGIA</string>
+    <string name="equipe_de_enfermagem">EQUIPE DE ENFERMAGEM</string>
+    <string name="cti">CTI</string>
+    <string name="bloco_cir_rgico">BLOCO CIRÚRGICO</string>
+    <string name="instala_es_e_acomoda_es">INSTALAÇÕES E ACOMODAÇÕES</string>
+    <string name="hotelaria_e_rouparia">HOTELARIA E ROUPARIA</string>
+    <string name="tesouraria_e_faturamento">TESOURARIA E FATURAMENTO</string>
+    <string name="secret_rias_dos_m_dicos">SECRETÁRIAS DOS MÉDICOS</string>
+    <string name="servi_os_de_nutri_o_e_diet_tica">SERVIÇOS DE NUTRIÇÃO E DIETÉTICA</string>
+    <string name="enviar">Enviar</string>
+    <string name="title_activity_comentario">HNSF-Comentario</string>
+    <string name="title_activity_questionario">HNSF-Questionario</string>
+    <string name="pergunta1">1-De modo geral, qual seu nivel de satisfaçao em relaçao ao atendimento HNSF?</string>
+    <string name="chk1">MUITO SATISFEITO</string>
+    <string name="chk2">SATISFEITO</string>
+    <string name="chk3">INDIFERENTE</string>
+    <string name="chk4">INSATISFEITO</string>
+    <string name="pergunta2">2-Já utilizou anteriormente nossos serviços?</string>
+    <string name="chk5">SIM</string>
+    <string name="chk6">NÃO</string>
+    <string name="pergunta3">3-Escolheu o HNSF por:</string>
+    <string name="chk7">ENCAMINHAMENTO DO CONVENIO</string>
+    <string name="chk8">ENCAMINHAMENTO DO MÉDICO</string>
+    <string name="chk9">INDICAÇÃO DE FAMILIAS/AMIGOS</string>
+    <string name="chk10">LOCALIZAÇÃO</string>
+    <string name="chk12">OUTRO:</string>
+    <string name="edit_text" />
+    <string name="buton">ENVIAR</string>
+    <string name="deixe_sua_elogio_critica_ou_sugest_o">Deixe sua elogio, critica ou sugestão</string>
+    <string name="title_activity_agradecimento">AgradecimentoActivity</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="deixe_seu_comentario">Deixe seu comentário</string>
+    <string name="voltar">Voltar</string>
+    <string name="obrigado_por_nos_ajudar_na_melhoria_de_nossos_servi_os">OBRIGADO POR NOS AJUDAR NA MELHORIA DE NOSSOS SERVIÇOS</string>
+    <string name="www_hnsf_com_br_hnsf_hnsf_com_br">www.hnsf.com.br| hnsf@hnsf.com.br</string>
+    <string name="pabx_34_3820_1000_fax_34_3820_1100">Pabx:(34) 3820-1000 |Fax:(34) 3820-1100</string>
+    <string name="rua_padre_caldeira_386_centro_patos_de_minas_mg">Rua Padre Caldeira, 386, Centro - Patos de Minas-MG</string>
+    <string name="hnsfimg">hnsfimg</string>
+    <string name="pesquisasatisfaction">pesquisasatisfaction</string>
+    <string name="entrar">Entrar</string>
+</resources>
 
 
